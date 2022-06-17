@@ -1,0 +1,10 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ProductSpecificationAPIs/bin
+/ProductSpecificationAPIs/obj
+
+
+/ProductSpecification.sln.bak
