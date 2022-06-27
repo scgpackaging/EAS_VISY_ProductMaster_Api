@@ -1,13 +1,15 @@
 ﻿using ProductCodeOldAPIs.Models;
+using ProductCodeOldAPIs.Models.ViewModel;
 
 namespace ProductCodeOldAPIs.Services.Interfaces
 {
     public interface IProductSpecificationService
     {
-        Task<bool> SaveProductCodeOld(ProductSpecification tModel);
-        Task<bool> UpdateProductCodeOld(ProductSpecification tModel);
-        Task<ResponseViewModel<ProductSpecification>> GetAllProductCode(int skip, int take);
-        Task<ResponseViewModel<ProductSpecification>> SearchProductCode(string productCode, string productDescription, int skip, int take);
+        Task<bool> SaveProductCodeOld(ProductCodeViewModel tModel);
+        Task<bool> UpdateProductCodeOld(ProductCodeViewModel tModel);
+        Task<ResponseViewModel<ProductCodeViewModel>> GetAllProductCode();
+        Task<ResponseViewModel<ProductCodeViewModel>> SearchProductCode(string productCode, string productDescription);
         Task<bool> Delete(int id);
+        Task<bool> CheckDuplicateProductCode(string productCode);
     }
 }

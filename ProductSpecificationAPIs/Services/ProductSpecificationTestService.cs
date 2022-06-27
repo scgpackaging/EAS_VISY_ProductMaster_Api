@@ -93,7 +93,7 @@ namespace ProductCodeOldAPIs.Services
                         CupPallet = item.CupPallet,
                         CupCon = item.CupCon,
                         PalletizerPattern = item.PalletizerPattern,
-                        UpdateDate = item.UpdateDate.ToString("dd/MMMM/yyyy HH:mm")
+                        UpdateDate = item.UpdateDate.ToString("dd/MM/yyyy HH:mm")
                     });
                 }
                 return new ResponseViewModel<ProductCodeViewModel>
@@ -130,7 +130,7 @@ namespace ProductCodeOldAPIs.Services
                         CupPallet = item.CupPallet,
                         CupCon = item.CupCon,
                         PalletizerPattern = item.PalletizerPattern,
-                        UpdateDate = item.UpdateDate.ToString("dd/MMMM/yyyy HH:mm")
+                        UpdateDate = item.UpdateDate.ToString("dd/MM/yyyy HH:mm")
                     });
                 }
 
