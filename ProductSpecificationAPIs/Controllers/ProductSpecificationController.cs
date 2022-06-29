@@ -12,11 +12,14 @@ namespace ProductCodeOldAPIs.Controllers
     {
         private readonly ILogger<ProductSpecificationController> _logger;
         private readonly IProductSpecificationTestService _productSpecificationTestService;
+        private readonly IProductSpecificationService _productSpecificationService;
 
-        public ProductSpecificationController(ILogger<ProductSpecificationController> logger, IProductSpecificationTestService productSpecificationTestService)
+        public ProductSpecificationController(ILogger<ProductSpecificationController> logger, IProductSpecificationTestService productSpecificationTestService
+            ,IProductSpecificationService productSpecificationService)
         {
             _logger = logger;
             _productSpecificationTestService = productSpecificationTestService;
+            _productSpecificationService = productSpecificationService;
         }
 
         [Route("Get-All-Product-Code")]
@@ -25,7 +28,7 @@ namespace ProductCodeOldAPIs.Controllers
         {
             try
             {
-                var result = await _productSpecificationTestService.GetAllProductCode();
+                var result = await _productSpecificationService.GetAllProductCode();
                 return Ok(new ResponseModel
                 {
                     Success = true,
@@ -45,7 +48,7 @@ namespace ProductCodeOldAPIs.Controllers
         {
             try
             {
-                var result = await _productSpecificationTestService.SaveProductCodeOld(Obj);
+                var result = await _productSpecificationService.SaveProductCodeOld(Obj);
                 return Ok(new ResponseModel
                 {
                     Success = true,
@@ -66,7 +69,7 @@ namespace ProductCodeOldAPIs.Controllers
         {
             try
             {
-                var result = await _productSpecificationTestService.SearchProductCode(ProductCode is null ? "" : ProductCode, ProductDescription is null ? "" : ProductDescription);
+                var result = await _productSpecificationService.SearchProductCode(ProductCode is null ? "" : ProductCode, ProductDescription is null ? "" : ProductDescription);
                 return Ok(new ResponseModel
                 {
                     Success = true,
@@ -86,7 +89,7 @@ namespace ProductCodeOldAPIs.Controllers
         {
             try
             {
-                var result = await _productSpecificationTestService.Delete(Id);
+                var result = await _productSpecificationService.Delete(Id);
                 return Ok(new ResponseModel
                 {
                     Success = true,
@@ -106,7 +109,7 @@ namespace ProductCodeOldAPIs.Controllers
         {
             try
             {
-                var result = await _productSpecificationTestService.UpdateProductCodeOld(Obj);
+                var result = await _productSpecificationService.UpdateProductCodeOld(Obj);
                 return Ok(new ResponseModel
                 {
                     Success = true,
@@ -126,7 +129,7 @@ namespace ProductCodeOldAPIs.Controllers
         {
             try
             {
-                var result = await _productSpecificationTestService.CheckDuplicateProductCode(ProductCode);
+                var result = await _productSpecificationService.CheckDuplicateProductCode(ProductCode);
                 return Ok(new ResponseModel
                 {
                     Success = true,
