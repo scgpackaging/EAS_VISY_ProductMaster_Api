@@ -114,8 +114,9 @@ namespace ProductCodeOldAPIs.Services
             try
             {
                 int total = 0;
-                var query = _productSpecification.Table.Where(x => x.Code.Contains(productCode) || x.Name.Contains(productDescription)).AsQueryable();
+                var query = _productSpecification.Table.Where(x => x.Code.Contains(productCode) && x.Name.Contains(productDescription)).AsQueryable();
                 var getData = await query.OrderByDescending(x => x.UpdateDate).Get(out total).ToListAsync();
+
                 List<ProductCodeViewModel> result = new List<ProductCodeViewModel>();
                 foreach (var item in getData)
                 {
